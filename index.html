@@ -93,29 +93,29 @@
     <div class="section-heading">
       <div class="eyebrow">Secure intake</div>
       <h2>Submit a scam report</h2>
-      <p>Only provide information necessary to describe the incident. Never submit passwords, recovery phrases, banking login credentials or unnecessary identity documents.</p>
+      <p>Provide whatever information you have. The incident fields are optional, so you can submit even if you do not know the scammer's website or profile, phone number, email, amount, or other details. Never submit passwords, recovery phrases, banking login credentials or unnecessary identity documents.</p>
     </div>
-    <div class="notice"><strong>Before you begin:</strong> You must verify the email account used for your report. Your case is associated with that authenticated account.</div>
+    <div class="notice"><strong>Before you begin:</strong> Sign in securely first. Your case reference is generated automatically after submission, and you can provide only the details you know.</div>
     <form id="reportForm" class="card form-card">
       <div class="form-title"><span>01</span><div><h3>Incident details</h3><p>Tell us the core facts.</p></div></div>
       <div class="grid">
-        <label>Full Name<input name="name" required maxlength="120" autocomplete="name"></label>
-        <label>Phone Number<input name="phone" required maxlength="40" autocomplete="tel"></label>
-        <label>Email Address<input name="email" type="email" required maxlength="160" autocomplete="email"></label>
-        <label>Scam Type<select name="scam_type" required>
+        <label>Full Name <small class="optional-label">(optional)</small><input name="name" maxlength="120" autocomplete="name"></label>
+        <label>Phone Number <small class="optional-label">(optional)</small><input name="phone" maxlength="40" autocomplete="tel"></label>
+        <label>Email Address <small class="optional-label">(optional)</small><input name="email" type="email" maxlength="160" autocomplete="email"></label>
+        <label>Scam Type <small class="optional-label">(optional)</small><select name="scam_type">
           <option value="">Select one</option><option>Investment scam</option><option>Cryptocurrency scam</option><option>Romance scam</option><option>Online shopping scam</option><option>Employment scam</option><option>Impersonation scam</option><option>Phishing</option><option>Payment fraud</option><option>Other</option>
         </select></label>
-        <label>Suspected Scammer Name<input name="scammer_name" maxlength="120"></label>
-        <label>Suspected Phone<input name="scammer_phone" maxlength="40"></label>
-        <label>Suspected Email<input name="scammer_email" type="email" maxlength="160"></label>
-        <label>Website / Profile<input name="website" maxlength="500" placeholder="https://..."></label>
-        <label>Amount Lost<input name="amount" type="number" min="0" step="0.01" inputmode="decimal"></label>
-        <label>Currency<input name="currency" maxlength="10" placeholder="USD"></label>
-        <label>Incident Date<input name="incident_date" type="date"></label>
+        <label>Suspected Scammer Name <small class="optional-label">(optional)</small><input name="scammer_name" maxlength="120"></label>
+        <label>Suspected Phone <small class="optional-label">(optional)</small><input name="scammer_phone" maxlength="40"></label>
+        <label>Suspected Email <small class="optional-label">(optional)</small><input name="scammer_email" type="email" maxlength="160"></label>
+        <label>Website / Profile <small class="optional-label">(optional)</small><input name="website" maxlength="500" placeholder="https://..."></label>
+        <label>Amount Lost <small class="optional-label">(optional)</small><input name="amount" type="number" min="0" step="0.01" inputmode="decimal"></label>
+        <label>Currency <small class="optional-label">(optional)</small><input name="currency" maxlength="10" placeholder="USD"></label>
+        <label>Incident Date <small class="optional-label">(optional)</small><input name="incident_date" type="date"></label>
       </div>
-      <label>Description<textarea name="description" required maxlength="5000" placeholder="Describe what happened, how you were contacted, what was requested, and what happened next."></textarea></label>
+      <label>Description <small class="optional-label">(optional)</small><textarea name="description" maxlength="5000" placeholder="Describe what happened, how you were contacted, what was requested, and what happened next."></textarea></label>
       <label class="file-box">Evidence image (optional)<input id="evidence" type="file" accept="image/jpeg,image/png,image/webp"><small>Evidence storage is not uploaded by the current frontend. Do not upload sensitive documents here until private storage is configured.</small></label>
-      <label class="check"><input type="checkbox" required> <span>I confirm the information is accurate to the best of my knowledge.</span></label>
+      <label class="check"><input type="checkbox"> <span>I confirm the information provided is accurate to the best of my knowledge.</span></label>
       <button class="btn primary wide" type="submit">Submit secure report <span>→</span></button>
       <div id="reportResult" aria-live="polite"></div>
     </form>
@@ -158,8 +158,8 @@
     </div>
     <div class="card lookup-card">
       <form id="lookupForm" class="lookup">
-        <input name="reference" placeholder="FR-2026-000001" required aria-label="Case reference">
-        <input name="email" type="email" placeholder="Email used on report" required aria-label="Email">
+        <input name="reference" placeholder="FR-2026-000001" aria-label="Case reference">
+        <input name="email" type="email" placeholder="Email used on report" aria-label="Email">
         <button class="btn primary" type="submit">Check case</button>
       </form>
       <div class="auth-actions">
@@ -186,8 +186,8 @@
         <div><h3>Administrator login</h3><p>Enter your administrator email and password.</p></div>
       </div>
       <form id="loginForm" class="admin-login-form">
-        <label>Email address<input type="email" name="email" autocomplete="username" placeholder="admin@example.com" required></label>
-        <label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+        <label>Email address<input type="email" name="email" autocomplete="username" placeholder="admin@example.com"></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Enter your password"></label>
         <button class="btn primary wide" type="submit">Sign in to admin panel</button>
         <div id="loginMsg" aria-live="polite"></div>
       </form>

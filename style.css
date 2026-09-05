@@ -83,3 +83,5 @@ footer{background:#0b1b30;color:#aab7c7;padding:32px 0}.footer-grid{display:flex
 .admin-login-card h3{margin:0}.muted{color:var(--muted);font-size:13px}
 .adminbar{margin-bottom:10px}.adminbar h3{margin:0 0 3px}
 #adminArea[hidden]{display:none}
+
+.optional-label{font-size:11px;font-weight:650;color:var(--muted);margin-left:5px}

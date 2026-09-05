@@ -22,12 +22,18 @@ $("reportForm").addEventListener("submit",async e=>{
     if(!user){ show(out,"Please sign in with your email before submitting a report."); return; }
     const f=new FormData(e.target);
     const payload={
-      p_name:f.get("name"),p_phone:f.get("phone"),p_email:user.email,
-      p_scam_type:f.get("scam_type"),p_scammer_name:f.get("scammer_name"),
-      p_scammer_phone:f.get("scammer_phone"),p_scammer_email:f.get("scammer_email"),
-      p_website:f.get("website"),p_amount:f.get("amount")?Number(f.get("amount")):null,
-      p_currency:f.get("currency"),p_incident_date:f.get("incident_date")||null,
-      p_description:f.get("description")
+      p_name:f.get("name")?.trim()||null,
+      p_phone:f.get("phone")?.trim()||null,
+      p_email:user.email,
+      p_scam_type:f.get("scam_type")||null,
+      p_scammer_name:f.get("scammer_name")?.trim()||null,
+      p_scammer_phone:f.get("scammer_phone")?.trim()||null,
+      p_scammer_email:f.get("scammer_email")?.trim()||null,
+      p_website:f.get("website")?.trim()||null,
+      p_amount:f.get("amount")?Number(f.get("amount")):null,
+      p_currency:f.get("currency")?.trim()||null,
+      p_incident_date:f.get("incident_date")||null,
+      p_description:f.get("description")?.trim()||null
     };
     const {data,error}=await db.rpc("create_report_secure",payload);
     if(error)throw error;

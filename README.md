@@ -5,6 +5,7 @@
 This version has a substantially richer public-facing landing page while preserving the supplied secure Supabase architecture.
 
 ### Frontend improvements
+- Report incident fields are optional; the case reference is generated automatically.
 - Polished responsive hero and navigation
 - Scam-category section
 - Four-step reporting process
@@ -12,7 +13,7 @@ This version has a substantially richer public-facing landing page while preserv
 - Privacy/security explanation
 - Expanded FAQ
 - Stronger report and tracking calls to action
-- Improved report form layout
+- Improved report form layout with optional incident fields
 - Improved private case-tracking presentation
 - Mobile-first responsive behavior
 
@@ -55,3 +56,7 @@ Set the corresponding password directly in Supabase Authentication. Do not put t
 - Audit logging for administrator actions
 - Stronger content validation and abuse controls
 - Custom domain and HTTPS
+
+
+### Report form behavior
+All incident-detail fields are optional, including Website / Profile. The authenticated account is used to associate the submission with the user, and Supabase generates the case reference automatically. The evidence selector remains optional because the supplied frontend does not yet upload files to private Storage.
