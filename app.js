@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded",()=>{
  const form=$("reportForm");
  if(form){
   const b=document.createElement("button");b.type="button";b.className="btn";b.textContent="Secure email sign-in";
-  b.onclick=signInUser;form.insertBefore(b,form.firstChild);
+  b.onclick=signInUser;b.classList.add("secure-signin");form.insertBefore(b,form.firstChild);
  }
 });
 (async()=>{

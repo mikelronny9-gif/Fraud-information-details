@@ -3,92 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Fraud Report Center — report suspected scams, track your case, and communicate securely with the review team.">
   <title>Fraud Report Center</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+<header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="#home">Fraud Report Center</a>
-    <nav>
-      <a href="#report">Report a Scam</a>
-      <a href="#check">Check Report</a>
-      <a href="#how">How It Works</a>
-      <a href="#admin">Admin</a>
+    <a class="brand" href="#home" aria-label="Fraud Report Center home">
+      <span class="brand-mark" aria-hidden="true">✓</span>
+      <span>Fraud Report Center</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#report">Report</a>
+      <a href="#how">How it works</a>
+      <a href="#safety">Safety</a>
+      <a href="#faq">FAQ</a>
+      <a href="#check">Track case</a>
     </nav>
+    <a class="nav-cta" href="#report">Start a report</a>
   </div>
 </header>
 
 <main>
 <section id="home" class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Consumer fraud reporting</span>
-    <h1>Report suspected scams and keep track of your case.</h1>
-    <p>Submit a complaint, provide supporting evidence, and receive updates from the review team.</p>
-    <div class="actions"><a class="btn primary" href="#report">Report a Scam</a><a class="btn" href="#check">Check My Report</a></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Consumer fraud reporting</div>
+      <h1>Turn a suspected scam into a documented case.</h1>
+      <p class="hero-copy">Report what happened, provide the details you have, and securely follow your case as it moves through review.</p>
+      <div class="actions">
+        <a class="btn primary" href="#report">Report a scam <span>→</span></a>
+        <a class="btn ghost" href="#check">Track my case</a>
+      </div>
+      <div class="trust-row">
+        <span>✓ Secure account access</span>
+        <span>✓ Private case lookup</span>
+        <span>✓ Human review workflow</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="mini-top"><span class="shield">◆</span><span>Case protection</span><span class="live">SECURE</span></div>
+      <div class="case-preview">
+        <span class="label">CASE REFERENCE</span>
+        <strong>FR-2026-••••••</strong>
+        <div class="progress"><span></span></div>
+        <div class="preview-row"><span>Submitted</span><b>Protected</b></div>
+        <div class="preview-row"><span>Access</span><b>Account verified</b></div>
+      </div>
+      <p class="card-note">Your case lookup is tied to the authenticated account, not just a reference number.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section intro">
+  <div class="wrap section-heading">
+    <div>
+      <div class="eyebrow">Know what to report</div>
+      <h2>Scams come in many forms.</h2>
+    </div>
+    <p>Choose the category that best matches what happened. If you're unsure, use Other and explain the situation.</p>
+  </div>
+  <div class="wrap category-grid">
+    <article class="category"><span class="icon">₿</span><h3>Crypto & investment</h3><p>Fake investments, wallet schemes, trading offers and recovery scams.</p></article>
+    <article class="category"><span class="icon">♥</span><h3>Romance scams</h3><p>Fraud involving fake identities, relationships, or requests for money.</p></article>
+    <article class="category"><span class="icon">▣</span><h3>Shopping scams</h3><p>Fake stores, products that never arrive, and misleading payment requests.</p></article>
+    <article class="category"><span class="icon">⌁</span><h3>Phishing</h3><p>Messages, websites or profiles designed to steal account or payment details.</p></article>
+    <article class="category"><span class="icon">◉</span><h3>Impersonation</h3><p>Someone pretending to be a company, official, friend, family member or professional.</p></article>
+    <article class="category"><span class="icon">◆</span><h3>Payment fraud</h3><p>Unauthorized transfers, payment requests, fake invoices or other payment deception.</p></article>
+  </div>
+</section>
+
+<section id="how" class="section alt">
+  <div class="wrap section-heading centered">
+    <div class="eyebrow">Simple process</div>
+    <h2>Four steps from report to review.</h2>
+    <p>Keep your reference number and use the same authenticated account whenever you return.</p>
+  </div>
+  <div class="wrap steps four">
+    <article><b>01</b><h3>Sign in securely</h3><p>Verify your email before submitting or accessing a case.</p></article>
+    <article><b>02</b><h3>Tell us what happened</h3><p>Give the facts, dates, contact details and financial information you have.</p></article>
+    <article><b>03</b><h3>Case review</h3><p>A reviewer can assess the submission and request additional information.</p></article>
+    <article><b>04</b><h3>Track & respond</h3><p>Return to your case to see its status and communicate privately.</p></article>
   </div>
 </section>
 
 <section id="report" class="section">
-<div class="wrap card">
-<h2>Submit a Scam Report</h2>
-<p class="muted">Do not submit passwords, recovery phrases, banking login credentials, or unnecessary identity documents.</p>
-<form id="reportForm">
-<div class="grid">
-<label>Full Name<input name="name" required maxlength="120"></label>
-<label>Phone Number<input name="phone" required maxlength="40"></label>
-<label>Email Address<input name="email" type="email" required maxlength="160"></label>
-<label>Scam Type<select name="scam_type" required>
-<option value="">Select one</option><option>Investment scam</option><option>Cryptocurrency scam</option><option>Romance scam</option><option>Online shopping scam</option><option>Employment scam</option><option>Impersonation scam</option><option>Phishing</option><option>Payment fraud</option><option>Other</option>
-</select></label>
-<label>Suspected Scammer Name<input name="scammer_name" maxlength="120"></label>
-<label>Suspected Phone<input name="scammer_phone" maxlength="40"></label>
-<label>Suspected Email<input name="scammer_email" type="email" maxlength="160"></label>
-<label>Website / Profile<input name="website" maxlength="500"></label>
-<label>Amount Lost<input name="amount" type="number" min="0" step="0.01"></label>
-<label>Currency<input name="currency" maxlength="10" placeholder="USD"></label>
-<label>Incident Date<input name="incident_date" type="date"></label>
-</div>
-<label>Description<textarea name="description" required maxlength="5000"></textarea></label>
-<label>Evidence image (optional)<input id="evidence" type="file" accept="image/jpeg,image/png,image/webp"></label>
-<label class="check"><input type="checkbox" required> I confirm the information is accurate to the best of my knowledge.</label>
-<button class="btn primary" type="submit">Submit Report</button>
-<div id="reportResult"></div>
-</form>
-</div>
+  <div class="wrap form-shell">
+    <div class="section-heading">
+      <div class="eyebrow">Secure intake</div>
+      <h2>Submit a scam report</h2>
+      <p>Only provide information necessary to describe the incident. Never submit passwords, recovery phrases, banking login credentials or unnecessary identity documents.</p>
+    </div>
+    <div class="notice"><strong>Before you begin:</strong> You must verify the email account used for your report. Your case is associated with that authenticated account.</div>
+    <form id="reportForm" class="card form-card">
+      <div class="form-title"><span>01</span><div><h3>Incident details</h3><p>Tell us the core facts.</p></div></div>
+      <div class="grid">
+        <label>Full Name<input name="name" required maxlength="120" autocomplete="name"></label>
+        <label>Phone Number<input name="phone" required maxlength="40" autocomplete="tel"></label>
+        <label>Email Address<input name="email" type="email" required maxlength="160" autocomplete="email"></label>
+        <label>Scam Type<select name="scam_type" required>
+          <option value="">Select one</option><option>Investment scam</option><option>Cryptocurrency scam</option><option>Romance scam</option><option>Online shopping scam</option><option>Employment scam</option><option>Impersonation scam</option><option>Phishing</option><option>Payment fraud</option><option>Other</option>
+        </select></label>
+        <label>Suspected Scammer Name<input name="scammer_name" maxlength="120"></label>
+        <label>Suspected Phone<input name="scammer_phone" maxlength="40"></label>
+        <label>Suspected Email<input name="scammer_email" type="email" maxlength="160"></label>
+        <label>Website / Profile<input name="website" maxlength="500" placeholder="https://..."></label>
+        <label>Amount Lost<input name="amount" type="number" min="0" step="0.01" inputmode="decimal"></label>
+        <label>Currency<input name="currency" maxlength="10" placeholder="USD"></label>
+        <label>Incident Date<input name="incident_date" type="date"></label>
+      </div>
+      <label>Description<textarea name="description" required maxlength="5000" placeholder="Describe what happened, how you were contacted, what was requested, and what happened next."></textarea></label>
+      <label class="file-box">Evidence image (optional)<input id="evidence" type="file" accept="image/jpeg,image/png,image/webp"><small>Evidence storage is not uploaded by the current frontend. Do not upload sensitive documents here until private storage is configured.</small></label>
+      <label class="check"><input type="checkbox" required> <span>I confirm the information is accurate to the best of my knowledge.</span></label>
+      <button class="btn primary wide" type="submit">Submit secure report <span>→</span></button>
+      <div id="reportResult" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<section id="safety" class="section safety">
+  <div class="wrap safety-grid">
+    <div>
+      <div class="eyebrow">If you've been scammed</div>
+      <h2>Act quickly. Protect yourself first.</h2>
+      <p class="lead">A report can document what happened, but it should not replace immediate steps with your bank, card issuer, exchange, platform or relevant authorities.</p>
+    </div>
+    <div class="safety-list">
+      <div><b>1</b><span><strong>Stop contact and payments</strong><small>Do not send additional money to “recover” funds or unlock an account.</small></span></div>
+      <div><b>2</b><span><strong>Secure affected accounts</strong><small>Change compromised passwords and enable stronger account security where appropriate.</small></span></div>
+      <div><b>3</b><span><strong>Contact the payment provider</strong><small>Ask your bank, card issuer or payment service what dispute or fraud options are available.</small></span></div>
+      <div><b>4</b><span><strong>Keep evidence</strong><small>Save messages, receipts, transaction references, URLs and screenshots in a safe place.</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section privacy">
+  <div class="wrap privacy-card">
+    <div class="privacy-icon">✓</div>
+    <div>
+      <div class="eyebrow">Privacy by design</div>
+      <h2>Your case should not be searchable by reference number alone.</h2>
+      <p>The current project uses authenticated Supabase access and database functions that check the signed-in user's identity before returning a case or its messages. Direct browser table access is revoked in the supplied SQL schema.</p>
+    </div>
+  </div>
 </section>
 
 <section id="check" class="section alt">
-<div class="wrap card">
-<h2>Check My Report</h2>
-<form id="lookupForm" class="lookup"><input name="reference" placeholder="FR-2026-000001" required><input name="email" type="email" placeholder="Email used on report" required><button class="btn primary">Check</button></form>
-<div id="lookupResult"></div>
-</div>
+  <div class="wrap track-shell">
+    <div class="section-heading centered">
+      <div class="eyebrow">Private case tracking</div>
+      <h2>Check your report</h2>
+      <p>Sign in with the account used for the report, then enter the case reference.</p>
+    </div>
+    <div class="card lookup-card">
+      <form id="lookupForm" class="lookup">
+        <input name="reference" placeholder="FR-2026-000001" required aria-label="Case reference">
+        <input name="email" type="email" placeholder="Email used on report" required aria-label="Email">
+        <button class="btn primary" type="submit">Check case</button>
+      </form>
+      <div class="auth-actions">
+        <button class="btn" type="button" id="userSignIn">Secure email sign-in</button>
+        <button class="btn" type="button" id="userSignOut" hidden>Sign out</button>
+        <span id="authState" class="muted">Not signed in</span>
+      </div>
+      <div id="lookupResult" aria-live="polite"></div>
+    </div>
+  </div>
 </section>
 
-<section id="how" class="section">
-<div class="wrap">
-<h2>How It Works</h2>
-<div class="steps"><div><b>1</b><h3>Submit</h3><p>Provide the details of the suspected scam and optional evidence.</p></div><div><b>2</b><h3>Review</h3><p>A reviewer examines the information and may request more details.</p></div><div><b>3</b><h3>Updates</h3><p>Use your reference number to see status and communicate securely.</p></div></div>
-</div>
+<section id="faq" class="section">
+  <div class="wrap faq-wrap">
+    <div class="section-heading centered"><div class="eyebrow">Questions</div><h2>Frequently asked questions</h2></div>
+    <div class="faq-grid">
+      <details><summary>Do I need an account to report a scam?</summary><p>Yes. The supplied implementation uses Supabase Auth so a report is tied to the authenticated user account.</p></details>
+      <details><summary>Can someone access my report if they know my reference number?</summary><p>The supplied RPC lookup checks the authenticated user's identity and only returns a report belonging to that account.</p></details>
+      <details><summary>What should I include in my description?</summary><p>Explain who contacted you, how they contacted you, what they claimed, what you were asked to do, dates, amounts, payment methods and any relevant website or profile information.</p></details>
+      <details><summary>Should I send passwords or recovery phrases?</summary><p>No. Never submit passwords, recovery phrases, banking login credentials or other secrets.</p></details>
+      <details><summary>Will reporting guarantee a refund?</summary><p>No. Reporting documents the incident and supports review; it does not guarantee recovery of money or a particular outcome.</p></details>
+      <details><summary>Is the evidence upload active?</summary><p>The current frontend contains an evidence selector, but the supplied JavaScript does not upload that file. Private storage and a server-side signed-download flow still need to be configured before production use.</p></details>
+    </div>
+  </div>
 </section>
 
-<section id="admin" class="section alt">
-<div class="wrap card">
-<h2>Administrator</h2>
-<p class="muted">Authorized staff only.</p>
-<form id="loginForm" class="lookup"><input name="email" type="email" placeholder="Admin email" required><input name="password" type="password" placeholder="Password" required><button class="btn primary">Login</button></form>
-<div id="adminArea" hidden>
-<div class="adminbar"><h2>Admin Dashboard</h2><button id="logout" class="btn">Log out</button></div>
-<div id="stats" class="stats"></div>
-<div id="reports"></div>
-</div>
-<div id="loginMsg"></div>
-</div>
+<section class="section cta">
+  <div class="wrap cta-inner">
+    <div><div class="eyebrow">Ready when you are</div><h2>Document the incident while the details are fresh.</h2><p>Start a secure report and keep your case reference for future updates.</p></div>
+    <a class="btn light" href="#report">Start a report →</a>
+  </div>
 </section>
 </main>
 
-<footer><div class="wrap">Fraud Report Center • Informational reporting service. Not a government agency.</div></footer>
+<footer>
+  <div class="wrap footer-grid">
+    <div><strong>Fraud Report Center</strong><p>Informational reporting service. Not a government agency.</p></div>
+    <div><a href="#report">Report</a><a href="#check">Track case</a><a href="#safety">Safety</a><a href="#faq">FAQ</a></div>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
 </body>
