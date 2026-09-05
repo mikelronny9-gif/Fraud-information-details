@@ -84,17 +84,6 @@ async function signInUser(){
 
 /* Admin uses Supabase Auth. The database RLS identifies authorized admin users
    from the admin_users table; frontend never contains an admin password. */
-$("loginForm").addEventListener("submit",async e=>{
- e.preventDefault(); const f=new FormData(e.target),out=$("loginMsg");
- try{
-  await requireDb();
-  const {error}=await db.auth.signInWithPassword({email:f.get("email"),password:f.get("password")});
-  if(error)throw error;
-  const {data}=await db.rpc("is_admin_secure");
-  if(!data){await db.auth.signOut();throw new Error("This account is not authorized as an administrator.");}
-  show(out,"Administrator login successful.",true); $("loginForm").hidden=true;$("adminArea").hidden=false;await loadAdmin();
- }catch(err){show(out,"Login failed: "+(err.message||""))}
-});
 $("logout").addEventListener("click",async()=>{await db.auth.signOut();location.reload()});
 
 async function loadAdmin(){
@@ -133,13 +122,44 @@ window.adminReply=async(reference,id)=>{
  if(error)alert(error.message);else{input.value="";await loadAdminMessages({reference_number:reference,id})}
 }
 
-/* Add a small sign-in control if desired. */
+/* Admin login box. Credentials are handled by Supabase Auth. */
+function bindAdminLogin(){
+ const form=$("loginForm");
+ if(!form || form.dataset.bound==="1")return;
+ form.dataset.bound="1";
+ form.addEventListener("submit",async e=>{
+  e.preventDefault();const f=new FormData(e.target),out=$("loginMsg");
+  try{
+   await requireDb();
+   const {error}=await db.auth.signInWithPassword({email:f.get("email"),password:f.get("password")});
+   if(error)throw error;
+   const {data}=await db.rpc("is_admin_secure");
+   if(!data){await db.auth.signOut();throw new Error("This account is not authorized as an administrator.");}
+   show(out,"Administrator login successful.",true);
+   $("loginForm").hidden=true;$("adminArea").hidden=false;await loadAdmin();
+  }catch(err){show(out,"Login failed: "+(err.message||""))}
+ });
+}
 document.addEventListener("DOMContentLoaded",()=>{
  const form=$("reportForm");
  if(form){
   const b=document.createElement("button");b.type="button";b.className="btn";b.textContent="Secure email sign-in";
   b.onclick=signInUser;b.classList.add("secure-signin");form.insertBefore(b,form.firstChild);
  }
+ if(!$("loginForm")){
+  const host=$("admin")||$("adminSection")||$("adminArea")?.parentElement;
+  if(host){
+   const card=document.createElement("div");card.className="admin-login-card";
+   card.innerHTML=`<div class="form-title"><span>ADMIN</span><div><h3>Administrator login</h3><p>Sign in to view and manage reported cases.</p></div></div>
+   <form id="loginForm" class="admin-login-form">
+    <label>Email address<input type="email" name="email" autocomplete="username" placeholder="admin@example.com" required></label>
+    <label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+    <button class="btn primary wide" type="submit">Sign in to admin panel</button><div id="loginMsg"></div>
+   </form>`;
+   host.insertBefore(card,host.firstChild);
+  }
+ }
+ bindAdminLogin();
 });
 (async()=>{
  if(!db)return;
