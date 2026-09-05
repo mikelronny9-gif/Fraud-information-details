@@ -43,7 +43,9 @@ The current frontend includes an evidence file selector for the UI, but the supp
 
 ## Admin credentials
 
-Use Supabase Authentication to set the admin email/password. Do not put the password in GitHub or JavaScript.
+Admin email for the sign-in form: `yomawisdom55@gmail.com`.
+
+Set the corresponding password directly in Supabase Authentication. Do not put the password in GitHub, HTML, JavaScript, or this README.
 
 ## Recommended production hardening
 
