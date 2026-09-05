@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fraud Report Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">Fraud Report Center</a>
+    <nav>
+      <a href="#report">Report a Scam</a>
+      <a href="#check">Check Report</a>
+      <a href="#how">How It Works</a>
+      <a href="#admin">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Consumer fraud reporting</span>
+    <h1>Report suspected scams and keep track of your case.</h1>
+    <p>Submit a complaint, provide supporting evidence, and receive updates from the review team.</p>
+    <div class="actions"><a class="btn primary" href="#report">Report a Scam</a><a class="btn" href="#check">Check My Report</a></div>
+  </div>
+</section>
+
+<section id="report" class="section">
+<div class="wrap card">
+<h2>Submit a Scam Report</h2>
+<p class="muted">Do not submit passwords, recovery phrases, banking login credentials, or unnecessary identity documents.</p>
+<form id="reportForm">
+<div class="grid">
+<label>Full Name<input name="name" required maxlength="120"></label>
+<label>Phone Number<input name="phone" required maxlength="40"></label>
+<label>Email Address<input name="email" type="email" required maxlength="160"></label>
+<label>Scam Type<select name="scam_type" required>
+<option value="">Select one</option><option>Investment scam</option><option>Cryptocurrency scam</option><option>Romance scam</option><option>Online shopping scam</option><option>Employment scam</option><option>Impersonation scam</option><option>Phishing</option><option>Payment fraud</option><option>Other</option>
+</select></label>
+<label>Suspected Scammer Name<input name="scammer_name" maxlength="120"></label>
+<label>Suspected Phone<input name="scammer_phone" maxlength="40"></label>
+<label>Suspected Email<input name="scammer_email" type="email" maxlength="160"></label>
+<label>Website / Profile<input name="website" maxlength="500"></label>
+<label>Amount Lost<input name="amount" type="number" min="0" step="0.01"></label>
+<label>Currency<input name="currency" maxlength="10" placeholder="USD"></label>
+<label>Incident Date<input name="incident_date" type="date"></label>
+</div>
+<label>Description<textarea name="description" required maxlength="5000"></textarea></label>
+<label>Evidence image (optional)<input id="evidence" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<label class="check"><input type="checkbox" required> I confirm the information is accurate to the best of my knowledge.</label>
+<button class="btn primary" type="submit">Submit Report</button>
+<div id="reportResult"></div>
+</form>
+</div>
+</section>
+
+<section id="check" class="section alt">
+<div class="wrap card">
+<h2>Check My Report</h2>
+<form id="lookupForm" class="lookup"><input name="reference" placeholder="FR-2026-000001" required><input name="email" type="email" placeholder="Email used on report" required><button class="btn primary">Check</button></form>
+<div id="lookupResult"></div>
+</div>
+</section>
+
+<section id="how" class="section">
+<div class="wrap">
+<h2>How It Works</h2>
+<div class="steps"><div><b>1</b><h3>Submit</h3><p>Provide the details of the suspected scam and optional evidence.</p></div><div><b>2</b><h3>Review</h3><p>A reviewer examines the information and may request more details.</p></div><div><b>3</b><h3>Updates</h3><p>Use your reference number to see status and communicate securely.</p></div></div>
+</div>
+</section>
+
+<section id="admin" class="section alt">
+<div class="wrap card">
+<h2>Administrator</h2>
+<p class="muted">Authorized staff only.</p>
+<form id="loginForm" class="lookup"><input name="email" type="email" placeholder="Admin email" required><input name="password" type="password" placeholder="Password" required><button class="btn primary">Login</button></form>
+<div id="adminArea" hidden>
+<div class="adminbar"><h2>Admin Dashboard</h2><button id="logout" class="btn">Log out</button></div>
+<div id="stats" class="stats"></div>
+<div id="reports"></div>
+</div>
+<div id="loginMsg"></div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">Fraud Report Center • Informational reporting service. Not a government agency.</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body>
+</html>
