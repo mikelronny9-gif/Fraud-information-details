@@ -19,7 +19,7 @@
       <a href="#how">How it works</a>
       <a href="#safety">Safety</a>
       <a href="#faq">FAQ</a>
-      <a href="#check">Track case</a>
+      <a href="#check">Track case</a><a href="#admin">Admin</a>
     </nav>
     <a class="nav-cta" href="#report">Start a report</a>
   </div>
@@ -168,6 +168,35 @@
         <span id="authState" class="muted">Not signed in</span>
       </div>
       <div id="lookupResult" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="admin" class="section admin-section">
+  <div class="wrap track-shell">
+    <div class="section-heading centered">
+      <div class="eyebrow">Administrator access</div>
+      <h2>Admin case dashboard</h2>
+      <p>Authorized administrators can sign in to review and manage reported cases.</p>
+    </div>
+
+    <div class="admin-login-card" id="adminLoginCard">
+      <div class="form-title">
+        <span>ADMIN</span>
+        <div><h3>Administrator login</h3><p>Enter your administrator email and password.</p></div>
+      </div>
+      <form id="loginForm" class="admin-login-form">
+        <label>Email address<input type="email" name="email" autocomplete="username" placeholder="admin@example.com" required></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+        <button class="btn primary wide" type="submit">Sign in to admin panel</button>
+        <div id="loginMsg" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <div id="adminArea" hidden>
+      <div class="adminbar"><div><h3>Reported cases</h3><p class="muted">Only authorized administrator accounts can view these cases.</p></div><button class="btn" type="button" id="logout">Sign out</button></div>
+      <div id="stats" class="stats"></div>
+      <div id="reports"></div>
     </div>
   </div>
 </section>

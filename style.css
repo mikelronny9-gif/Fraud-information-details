@@ -78,3 +78,8 @@ footer{background:#0b1b30;color:#aab7c7;padding:32px 0}.footer-grid{display:flex
 .admin-login-card{max-width:520px;margin:25px auto;padding:28px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 15px 45px rgba(20,35,55,.07)}
 .admin-login-form{display:grid;gap:4px}.admin-login-form .btn{margin-top:4px}
 @media(max-width:650px){.admin-login-card{padding:20px}}
+
+.admin-section{background:#f6f8fa}
+.admin-login-card h3{margin:0}.muted{color:var(--muted);font-size:13px}
+.adminbar{margin-bottom:10px}.adminbar h3{margin:0 0 3px}
+#adminArea[hidden]{display:none}
